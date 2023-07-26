@@ -44,6 +44,16 @@ body {
   font-family: var(--font-inter), var(--font-noto-sans-jp), sans-serif;
 }
 
+.main-container {
+  flex: 1 1 0%;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 5rem;
+}
+
 .appBar {
   padding: 1.5rem 2rem;
   display: flex;

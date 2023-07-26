@@ -1,3 +1,5 @@
+import styles from "./Privacy.module.css";
+
 import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -5,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function Privacy() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between md:p-24 sm:p-8 sm:pt-16">
+    <main className="main-container">
       <div className="container mx-auto p-8">
         <h1 className="text-3xl font-bold mb-4">プライバシーポリシー</h1>
         <p>最終更新日:2023/7/24</p>
