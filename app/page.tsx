@@ -1,6 +1,4 @@
 "use client";
-
-import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faDiscord,
@@ -23,7 +21,7 @@ type IconProps = {
 };
 
 const Icon = (props: IconProps) => (
-  <Image
+  <img
     className="rounded-full shadow-lg"
     src="/clover.png"
     alt="Clover_Midori"
@@ -127,10 +125,9 @@ export default function Home() {
             viewport={{ once: true, margin: "-200px" }}
           >
             <div className={styles.cardMedia}>
-              <Image
+              <img
                 src="/bot.png"
                 alt="Clover_Midori"
-                fill
                 style={{ objectFit: "cover" }}
               />
             </div>
@@ -166,10 +163,9 @@ export default function Home() {
                 backgroundColor: "#692f2f",
               }}
             >
-              <Image
+              <img
                 src="/11Tube_Music.png"
                 alt="11Tube Music"
-                fill
                 style={{ objectFit: "contain", padding: "10%" }}
               />
             </div>
