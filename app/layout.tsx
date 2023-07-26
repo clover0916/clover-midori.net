@@ -22,6 +22,15 @@ const noto_sans_jp = Noto_Sans_JP({
 export const metadata: Metadata = {
   title: "Clover_Midori",
   description: "いろいろやってます",
+  openGraph: {
+    images: [
+      {
+        url: "https://clover-midori.net/icon_512.png",
+        width: 512,
+        height: 512,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
