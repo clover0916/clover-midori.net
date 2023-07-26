@@ -10,7 +10,7 @@ export default function AppBar() {
       <div className="text-xl font-bold">
         <a href="/">Clover_Midori</a>
       </div>
-      <div className="flex gap-8">
+      <div className="sm:flex gap-8 hidden">
         <Link
           className="duration-100 hover:opacity-80 hover:cursor-pointer"
           to="about"

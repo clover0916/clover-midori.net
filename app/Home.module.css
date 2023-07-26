@@ -17,6 +17,9 @@
   flex: 1;
   justify-content: center;
   align-items: center;
+  @media (max-width: 960px) {
+    flex-direction: column;
+  }
 }
 
 .card {
@@ -71,7 +74,21 @@
   flex-direction: column;
   justify-items: center;
   text-align: center;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   padding-top: 5rem;
+}
+
+.contactsContainer {
+  width: 100%;
+  display: flex;
+  column-gap: 8rem;
+  row-gap: 2rem;
+  margin-top: 2px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  @media (max-width: 960px) {
+    flex-direction: column;
+  }
 }

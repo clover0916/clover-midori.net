@@ -71,10 +71,15 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <div className="flex h-screen justify-evenly w-full" id="about">
+      <div
+        className="flex h-screen justify-evenly w-full flex-col-reverse md:flex-row"
+        id="about"
+      >
         <div className="flex flex-col justify-center">
           <animated.h1
-            className={"text-6xl font-bold mt-4"}
+            className={
+              "text-5xl lg:text-6xl font-bold mt-4 text-center md:text-left"
+            }
             style={{
               ...nameSprings,
             }}
@@ -82,7 +87,7 @@ export default function Home() {
             クローバーみどり
           </animated.h1>
           <animated.p
-            className=" text-xl mt-2 text-gray-400"
+            className="text-xl mt-2 text-gray-400 text-center md:text-left"
             style={{
               ...bioSprings,
             }}
@@ -191,11 +196,11 @@ export default function Home() {
         </div>
       </div>
       <div
-        className="flex flex-col items-center justify-center h-80"
+        className="flex flex-col items-center justify-center h-80 my-8 w-full"
         id="contact"
       >
         <h2 className="text-3xl font-bold pb-8">Contact</h2>
-        <div className="flex gap-20 mt-2 items-center md:flex-row sm:flex-col">
+        <div className={styles.contactsContainer}>
           <div className="flex items-center">
             <FontAwesomeIcon icon={faDiscord} className="h-8 pr-4" />
             <span className="text-xl">clover_0916</span>
