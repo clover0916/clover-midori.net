@@ -1,13 +1,58 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+import { Link } from "react-scroll";
+
 export default function AppBar() {
+  const router = useRouter();
   return (
-    <nav className="p-8 flex justify-between">
+    <nav className="appBar">
       <div className="text-xl font-bold">
-        <span>Clover_Midori</span>
+        <a href="/">Clover_Midori</a>
       </div>
       <div className="flex gap-8">
-        <a href="/#about">About</a>
-        <a href="/#service">Projects</a>
-        <a href="/#contact">Contact</a>
+        <Link
+          className="duration-100 hover:opacity-80 hover:cursor-pointer"
+          to="about"
+          smooth={true}
+          onClick={() => {
+            if (location.pathname != "/") {
+              location.href = "/";
+            } else {
+              router.push("/");
+            }
+          }}
+        >
+          About
+        </Link>
+        <Link
+          className="duration-100 hover:opacity-80 hover:cursor-pointer"
+          to="projects"
+          smooth={true}
+          onClick={() => {
+            if (location.pathname != "/") {
+              location.href = "/#projects";
+            } else {
+              router.push("/#projects");
+            }
+          }}
+        >
+          Projects
+        </Link>
+        <Link
+          className="duration-100 hover:opacity-80 hover:cursor-pointer"
+          to="contact"
+          smooth={true}
+          onClick={() => {
+            if (location.pathname != "/") {
+              location.href = "/#contact";
+            } else {
+              router.push("/#contact");
+            }
+          }}
+        >
+          Contact
+        </Link>
       </div>
     </nav>
   );

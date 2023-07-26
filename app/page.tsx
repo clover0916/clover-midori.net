@@ -13,6 +13,27 @@ import {
   faCopy,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import { useSpring, animated } from "@react-spring/web";
+import styles from "./Home.module.css";
+import { LinkButton } from "./components/LinkButton";
+import { motion } from "framer-motion";
+
+type IconProps = {
+  style?: React.CSSProperties;
+};
+
+const Icon = (props: IconProps) => (
+  <Image
+    className="rounded-full shadow-lg"
+    src="/clover.png"
+    alt="Clover_Midori"
+    width={200}
+    height={200}
+    {...props}
+  />
+);
+
+const AnimatedIcon = animated(Icon);
 
 export default function Home() {
   const [isCopied, setIsCopied] = useState(false);
@@ -27,21 +48,157 @@ export default function Home() {
       }, 1000);
     };
 
+  const nameSprings = useSpring({
+    config: {},
+    from: { x: 20, opacity: 0 },
+    to: { x: 0, opacity: 1 },
+  });
+
+  const bioSprings = useSpring({
+    from: { x: 20, opacity: 0 },
+    to: { x: 0, opacity: 1 },
+    delay: 200,
+  });
+
+  const iconSprings = useSpring({
+    from: { y: 100, opacity: 0 },
+    to: { y: 0, opacity: 1 },
+  });
+
+  const iconDescSprings = useSpring({
+    from: { y: 100, opacity: 0 },
+    to: { y: 0, opacity: 1 },
+    delay: 200,
+  });
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="flex flex-col items-center justify-center">
-        <h1 className="text-4xl font-bold mt-4">Hi, I'm Clover</h1>
-        <p className="text-xl mt-2">I'm a software engineer and designer</p>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <h2 className="text-2xl font-bold">Projects</h2>
-        <div className="mt-2 grid gap-4 grid-cols-3">
-          <div className="text-xl h-14 w-16 shadow-lg">Clover_Bot</div>
-          <div className="text-xl h-14 w-16 shadow-lg">11Tube Music</div>
+    <main className="flex min-h-screen flex-col items-center justify-between">
+      <div className="flex h-screen justify-evenly w-full" id="about">
+        <div className="flex flex-col justify-center">
+          <animated.h1
+            className={"text-6xl font-bold mt-4"}
+            style={{
+              ...nameSprings,
+            }}
+          >
+            クローバーみどり
+          </animated.h1>
+          <animated.p
+            className=" text-xl mt-2 text-gray-400"
+            style={{
+              ...bioSprings,
+            }}
+          >
+            いろいろやってます
+          </animated.p>
+        </div>
+        <div className="flex flex-col items-center justify-center">
+          <AnimatedIcon
+            style={{
+              ...iconSprings,
+            }}
+          />
+          <animated.span
+            className="mt-6 text-gray-400"
+            style={{
+              ...iconDescSprings,
+            }}
+          >
+            2023/3下旬頃にIllustratorで作ったアイコン
+          </animated.span>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center">
-        <h2 className="text-2xl font-bold pb-8">Contact</h2>
+      <div className={styles.projects} id="projects">
+        <motion.h2
+          className="text-3xl font-bold p-4"
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ ease: "easeOut" }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          Projects
+        </motion.h2>
+        <div className={styles.cardContainer}>
+          <motion.div
+            className={"shadow-lg " + styles.card}
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ ease: "easeOut" }}
+            viewport={{ once: true, margin: "-200px" }}
+          >
+            <div className={styles.cardMedia}>
+              <Image
+                src="/bot.png"
+                alt="Clover_Midori"
+                fill
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+            <div className={styles.cardContent}>
+              <div className={styles.cardText}>
+                <p className="text-2xl">Clover_Bot</p>
+                <p className="text-sm text-gray-700">Discord Bot</p>
+              </div>
+              <div className={styles.cardActions}>
+                <LinkButton
+                  href="https://bot.clover-midori.net"
+                  content="詳細"
+                />
+                <LinkButton
+                  href="https://discord.com/api/oauth2/authorize?client_id=726804663059480653&permissions=1644971949559&scope=bot%20applications.commands"
+                  content="導入"
+                />
+              </div>
+            </div>
+          </motion.div>
+          <motion.div
+            className={"shadow-lg " + styles.card}
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              ease: "easeOut",
+            }}
+            viewport={{ once: true, margin: "-200px" }}
+          >
+            <div
+              className={styles.cardMedia}
+              style={{
+                backgroundColor: "#692f2f",
+              }}
+            >
+              <Image
+                src="/11Tube_Music.png"
+                alt="11Tube Music"
+                fill
+                style={{ objectFit: "contain", padding: "10%" }}
+              />
+            </div>
+            <div className={styles.cardContent}>
+              <div className={styles.cardText}>
+                <p className="text-2xl">11Tube Music</p>
+                <p className="text-sm text-gray-700">
+                  Youtube Music for Windows 11
+                </p>
+              </div>
+              <div className={styles.cardActions}>
+                <LinkButton
+                  href="https://music.clover-midori.net"
+                  content="詳細"
+                />
+                <LinkButton
+                  href="https://github.com/clover0916/11Tube-Music/blob/master/README.ja.md#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%96%B9%E6%B3%95"
+                  content="インストール"
+                />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+      <div
+        className="flex flex-col items-center justify-center h-80"
+        id="contact"
+      >
+        <h2 className="text-3xl font-bold pb-8">Contact</h2>
         <div className="flex gap-20 mt-2 items-center md:flex-row sm:flex-col">
           <div className="flex items-center">
             <FontAwesomeIcon icon={faDiscord} className="h-8 pr-4" />

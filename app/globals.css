@@ -4,18 +4,55 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-white-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+  --background-white-rgb: 0, 0, 0;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-white-rgb: 0, 0, 0;
+    --background-rgb: 0, 0, 0;
+    --background-white-rgb: 255, 255, 255;
   }
 }
 
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
 body {
-  background: white;
+  background: rgb(var(--background-rgb));
+  color: rgb(var(--foreground-rgb));
+  font-family: var(--font-inter), var(--font-noto-sans-jp), sans-serif;
+}
+
+.appBar {
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  background-color: rgba(var(--background-rgb), 0.5);
+  backdrop-filter: blur(4px);
+  height: 5rem;
+  z-index: 100;
 }

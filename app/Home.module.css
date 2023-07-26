@@ -1,0 +1,74 @@
+.nameText {
+  position: relative;
+  width: 100%;
+  line-height: 80px;
+  color: black;
+  font-size: 4em;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  will-change: transform, opacity;
+  overflow: hidden;
+}
+
+.cardContainer {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 2rem;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 22rem;
+  height: 28rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.cardMedia {
+  flex: 1;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: calc((100% / 3) * 2);
+}
+
+.cardContent {
+  height: calc(100% / 3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: rgb(var(--foreground-white-rgb));
+}
+
+.cardText {
+  text-align: left;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.cardActions {
+  display: flex;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+  padding-top: 5rem;
+}
