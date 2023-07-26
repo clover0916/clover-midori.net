@@ -26,7 +26,6 @@
     "autoprefixer": "10.4.14",
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.9",
-    "fontawesome-svg-core": "link:@types/@fortawesome/fontawesome-svg-core",
     "framer-motion": "^10.13.1",
     "gsap": "^3.12.2",
     "next": "13.4.12",
