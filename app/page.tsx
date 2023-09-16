@@ -185,13 +185,12 @@ export default function Home() {
               </div>
               <div className={styles.cardActions}>
                 <LinkButton
-                  href="https://music.clover-midori.net"
+                  href="https://github.com/clover0916/11Tube-Music"
                   content="詳細"
-                  disabled
                 />
                 <LinkButton
-                  href="https://github.com/clover0916/11Tube-Music/blob/master/README.ja.md#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%96%B9%E6%B3%95"
-                  content="インストール"
+                  href="https://github.com/clover0916/11Tube-Music/releases"
+                  content="ダウンロード"
                   thankYou
                 />
               </div>
